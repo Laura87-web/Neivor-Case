@@ -1,7 +1,7 @@
 require("colors")
 const server = require("./src/server.js")
 const {conn} = require("./src/DB.js")
-const PORT = 3000
+const PORT = 3001
 const MESSAGE = `- Listen in port: ${PORT} -`.magenta.bold
 
 conn.sync().then(()=>{
