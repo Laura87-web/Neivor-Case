@@ -1,19 +1,24 @@
 const { Router } = require('express');
 const router = Router();
-const { Landlord, Department, BankAcount } = require('../DB.js');
+const { conn } = require('../DB.js');
 
+const querys = {
+    landlords : "SELECT * FROM living.landlord",
+    countBank : "SELECT * FROM living.bankaccount",
+    department : "SELECT * FROM living.department",
+}
 
-router.use("/", async(req, res)=>{
+router.get("/", async(req, res)=>{
     const data = req.body
+    var resultados;
    try{
-       const users = await Landlord.FindAll()
-    //    const dogies = await Raza.findAll({ where: { name: name } })
-       console.log(users)
+      resultados = await conn.query(querys.landlords);
+                
 
    }catch{
-    console.log("no se encontro user")
+    console.log("no se encontro")
    }
-    res.send("<h1>estas en la pag pral</h1>")
+    res.send(resultados)
 })
 
 

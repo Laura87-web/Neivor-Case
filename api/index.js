@@ -4,8 +4,6 @@ const {conn} = require("./src/DB.js")
 const PORT = 3001
 const MESSAGE = `- Listen in port: ${PORT} -`.magenta.bold
 
-conn.sync().then(()=>{
-    server.listen( PORT,()=>{
-        console.log(MESSAGE)
-    })
+server.listen( PORT,()=>{
+    console.log(MESSAGE)
 })
