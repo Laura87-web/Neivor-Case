@@ -11,7 +11,9 @@ const querys = {
 router.get("/", async(req, res)=>{
     const data = req.body
     var resultados;
-   try{
+   
+   
+    try{
       resultados = await conn.query(querys.landlords);
                 
 
