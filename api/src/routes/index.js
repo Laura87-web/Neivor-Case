@@ -1,27 +1,25 @@
 const { Router } = require('express');
-const router = Router();
-const { conn } = require('../DB.js');
-
-const querys = {
-    landlords : "SELECT * FROM living.landlord",
-    countBank : "SELECT * FROM living.bankaccount",
-    department : "SELECT * FROM living.department",
+const router = Router()
+const getFragments = require("../sevices/getFragments")
+const matcher = require("../sevices/matcher.js")
+// devolvera un objeto con los fragmentos posibles a encontrar en una leyenda
+//el objeto tendra 3 propiedades
+// cada propiedad guardara un array con fragmentos a encontrar en la leyenda
+/* 
+obj ={
+    landlords : ["CARLOS", "ALMADA", "MIRTA", "RODRIGUEZ", "NICOLAS"],
+    countsBank: [233434, 434344, 4343445, 66667, 766666],
+    referencias: [2101, 1101, 2301, 1201]
 }
+*/
+router.post("/", getFragments)
 
-router.get("/", async(req, res)=>{
-    const data = req.body
-    var resultados;
-   
-   
-    try{
-      resultados = await conn.query(querys.landlords);
-                
+//------------------
+// "/matcher"  recibe el obj fragments y el json de readExcel
+// ejecuta la funcion matcher por cada una de las leyentas en el json
+// devuelve un json con los datos para la nueva tabla a mostrar
+// router.get("/matcher", matcher)
 
-   }catch{
-    console.log("no se encontro")
-   }
-    res.send(resultados)
-})
 
 
 module.exports = router; 

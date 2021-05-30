@@ -7,7 +7,7 @@ function readExcel(ruta){
     const dataExcel = XLSX.utils.sheet_to_json(workbook.Sheets[sheet])
     
     for(const itemfila of dataExcel){
-        console.log(itemfila.LEYENDA)
+        console.log(itemfila.LEYENDA , "---")
     }
     
     

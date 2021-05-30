@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import fs from "fs"
+import axios from "axios"
 // import {buscar} from "../../actions"
 // import { useDispatch } from 'react-redux';
+import {getMatch} from "../requestsAPI/getMatch"
 
 export default function Buscador() {
     const [value, setValue] = useState("")
@@ -13,7 +15,8 @@ export default function Buscador() {
     }
     function handlerSubmit(e){    
        e.preventDefault()
-       dispatch(buscar(value))
+      getMatch(value)
+      
       
     }    
     return (
