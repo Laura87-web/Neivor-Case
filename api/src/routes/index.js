@@ -1,7 +1,6 @@
 const { Router } = require('express');
 const router = Router()
-const getFragments = require("../sevices/getFragments")
-const matcher = require("../sevices/matcher.js")
+const matchSeaarch = require("./matchSearch")
 // devolvera un objeto con los fragmentos posibles a encontrar en una leyenda
 //el objeto tendra 3 propiedades
 // cada propiedad guardara un array con fragmentos a encontrar en la leyenda
@@ -12,7 +11,7 @@ obj ={
     referencias: [2101, 1101, 2301, 1201]
 }
 */
-router.post("/", getFragments)
+router.post("/", matchSeaarch)
 
 //------------------
 // "/matcher"  recibe el obj fragments y el json de readExcel
