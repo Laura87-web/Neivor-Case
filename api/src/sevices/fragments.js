@@ -1,7 +1,7 @@
 const { conn } = require('../DB.js');
 
 const querys = {
-    landlords : "SELECT name FROM living.landlord",
+    landlords : "SELECT * FROM living.landlord",
     countBank : "SELECT * FROM living.bankaccount",
     refer : "SELECT reference FROM living.department",
 
