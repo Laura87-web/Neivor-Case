@@ -10,17 +10,20 @@ function matcher(fragments, leyenda){
     if(leyenda.includes(elem.document)){
        return objResponse = {
             ...elem,
-            match: "match_dni"
+            match: "match_dni",
+            leyenda
         }
     }else if( leyenda.includes(elem.reference)){
         return objResponse = {
             ...elem,
-            match: "match_reference"
+            match: "match_reference",
+            leyenda
         }
     }else if(leyenda.includes(elem.bank_account)){
         return objResponse = {
             ...elem,
-            match: "match_bankAccount"
+            match: "match_bankAccount",
+            leyenda
         }
     }else{
         arrNames = elem.name.split(" ")
@@ -28,7 +31,8 @@ function matcher(fragments, leyenda){
             if(leyenda.includes(name)){
                 return objResponse = {
                     ...elem,
-                    match: "match_name"
+                    match: "match_name",
+                    leyenda
                 }
             }
         }

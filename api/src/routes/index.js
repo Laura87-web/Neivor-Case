@@ -11,7 +11,7 @@ obj ={
     referencias: [2101, 1101, 2301, 1201]
 }
 */
-router.post("/", matchSeaarch)
+router.post("/match", matchSeaarch)
 
 //------------------
 // "/matcher"  recibe el obj fragments y el json de readExcel
