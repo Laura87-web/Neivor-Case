@@ -5,7 +5,8 @@ export function getMatch(leyenda) {
      return axios.post("http://localhost:3001", {params: leyenda}) 
             // .then(respuesta => respuesta.json())
             .then(respuesta => {
-               console.log(respuesta.data)
+               console.log("-------- DATA ----------",respuesta.data)
+               return respuesta.data
             })
 }
     
