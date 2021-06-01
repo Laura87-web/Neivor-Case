@@ -13,4 +13,4 @@ function readExcel(ruta){
     
 }
 
-readExcel("Estado-de-cuenta.xlsx")
+readExcel("./src/uploads/Estado-de-cuenta.xlsx")

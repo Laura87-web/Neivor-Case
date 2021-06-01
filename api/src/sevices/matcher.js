@@ -1,5 +1,12 @@
-//esta funcion recibira una linea LEYENDA
+//esta funcion recibira una LEYENDA y el objeto fragments
 // y comprobara si existe alguna coincidencia con el obj de fragments
+//retorna un objeto con los datos del propietario mas el tipo de coincidencia
+//sino retorna un string "no hubo coincidencias"
+//--------------------------------------------------------------------
+// this function will receive a LEYEND string and the fragments object
+// and will check if there is any match with the fragments obj.
+// returns an object with the owner's data plus the type of match
+// otherwise it returns a string "no hubo coincidencias"
 
 function matcher(fragments, leyenda){
     console.log("-f- matcher".yellow)

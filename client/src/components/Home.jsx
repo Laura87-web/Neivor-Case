@@ -2,12 +2,19 @@ import React, { useEffect, useState } from 'react';
 import fs from "fs"
 import LeyendDetail from "./LeyendDetail"
 import MatcherSearch from "../components/MatcherSearch"
+import uploadExel from "../requestsAPI/uploadExcel"
 import styled from "styled-components";
 
 
 export default function Home(){
     const[result, setResult] = useState()  
-   
+  
+    function handlerUpload(e){
+       e.preventDefault()
+       console.log("esto tiene e", e)
+       
+       uploadExel(e.name)
+   }
    
       useEffect(() => {
       }, [result]) 
@@ -25,17 +32,17 @@ export default function Home(){
         )}
         <div>
             <h3>o agregue archivo Excel con resumen de cuenta</h3>
-        <form action='http://localhost:3000/upload' method="POST" enctype="multipart/form-data">
-        <input type="file" name="file"/>
-        <input type="submit" value="Subir"/>
-        </form>     
+            <form onSubmit={handlerUpload} 
+            enctype="multipart/form-data">
+        <input type="file" name="sampleFile" />
+        <input type='submit' value='Upload!' />
+    </form>     
         </div>
       </StyledHome>
     );
 }
 
 const StyledHome = styled.div`
-
 
     width: 70%;
     

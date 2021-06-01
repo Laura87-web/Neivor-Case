@@ -12,6 +12,7 @@ server.use(cors());
 server.use(express.json());
 server.use(morgan("dev"))
 server.use(fileUpload())
+
 server.use("/", routes)
 
 module.exports = server

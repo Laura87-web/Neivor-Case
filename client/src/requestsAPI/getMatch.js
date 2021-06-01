@@ -1,12 +1,8 @@
 import axios from "axios"
 
-export function getMatch(leyenda) {
-   console.log("leyenda:  ", leyenda)
-     return axios.post("http://localhost:3001/match", {params: leyenda}) 
-            // .then(respuesta => respuesta.json())
-            .then(respuesta => {
-               console.log("-------- DATA ----------",respuesta.data)
-               return respuesta.data
-            })
+export async function getMatch(leyenda) {
+  
+     const respuesta = await axios.post("http://localhost:3001/match", leyenda)
+   return respuesta.data
 }
     

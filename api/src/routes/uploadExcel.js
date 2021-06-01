@@ -2,24 +2,27 @@ require("colors")
 const getFragmentsOfDataBase = require("../sevices/getFragmentsOfDataBase");
 const matcher = require('../sevices/matcher.js');
 
-async function  uploadExcel (req, res){
-    console.log("-f- uploadExcel".cyan)
+async function  uploadExcel (req, res) {
+    console.log("EN SERVER POST x-x-x-x-x-x-x-x-x-x-x-x-x")
+    // console.log("ESTO ES REQ............",req)
+    let sampleFile;
+    let uploadPath;
     
+    if (!req.files || Object.keys(req.files).length === 0) {
+        return res.status(400).send('No files were uploaded.');
+    }
     
-    // const fragments = await getFragmentsOfDataBase()
-    // // console.log("fraagmnets -----zzz ", fragments[0])
+    // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+    sampleFile = req.files.sampleFile;
+    uploadPath = __dirname + '/uploads/' + sampleFile.name;
     
-    // //matching devuelve un objeto con los datos requeridos o "no hubo coincidencias"
-    // const matching = await matcher(fragments[0], leyenda) //dejo el await.. eventualemete leera un libro excel en vez de un string
+    // Use the mv() method to place the file somewhere on your server
+    sampleFile.mv(uploadPath, function(err) {
+        if (err)
+        return res.status(500).send(err);
         
-    // res.send(matching)
-    let EDFile = req.files.file
-    EDFile.mv(`./files/${EDFile.name}`,err => {
-        if(err) return res.status(500).send({ message : err })
-
-        return res.status(200).send({ message : 'File upload' })
+        res.send('File uploaded!');
     })
 }
-
 
 module.exports = uploadExcel; 

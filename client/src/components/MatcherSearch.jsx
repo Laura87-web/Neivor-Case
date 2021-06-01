@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import fs from "fs"
+import React, { useState } from 'react';
 import styled from "styled-components";
 import {getMatch} from "../requestsAPI/getMatch"
 
@@ -10,13 +9,12 @@ export default function MatcherSearch({setResult}) {
      setValue(e.target.value) 
      console.log("imput cambiando",e.target.value)
   }
+  
   async function handlerSubmit(e){   
-              e.preventDefault() 
+    e.preventDefault() 
     if(value){
-      const res = await getMatch(value)
-      // console.log("res ---- >", res)
-      setResult(res)
-    //   setValue("")
+      const res = await getMatch(value)      
+      setResult(res)    
     }else{
       alert("ingrese algun dato antes de apretar boton de busqueda")
     } 
@@ -26,8 +24,8 @@ export default function MatcherSearch({setResult}) {
   return (
     <StyledSearch >
     <div>
-      <form className="form-buscador" onSubmit={handlerSubmit}>
-        <input type="text" onChange={handlerChange} value={value} />
+      <form onSubmit={handlerSubmit}>
+        <input  name="leyenda"type="text" onChange={handlerChange} value={value} />
         <button type="submit">Buscar</button>
       </form>     
       </div>
