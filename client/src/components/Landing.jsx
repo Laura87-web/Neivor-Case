@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from "styled-components";
-import URL from "../img/Landing.png"
+import URL from "../img/bacground.png"
 
 export default function Landing() {   
      return (
       <StyledSearch >
-         
-         <Link to="/search">
+         <h1>Neivor - Case</h1>
+         <h2>¿Quien Hizo El Pago?</h2>
+
+         <Link to="/home">
             <button className="button-landing">GO</button>
          </Link>
 
@@ -19,12 +21,17 @@ export default function Landing() {
 
 const StyledSearch = styled.div`
 
-background-image: url(${URL});  
 
+/* background-image: url(${URL});  */
+background-color: #0a0a0a;
 width: 100%;
+height: 100%;
+position: absolute;
 display: flex;
+flex-direction: column;
 align-items: center;
 justify-content: center;
+color:  #f38181ed;
    
 
    .button-landing {
