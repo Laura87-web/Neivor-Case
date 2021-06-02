@@ -7,7 +7,7 @@ export default function Landing() {
      return (
       <StyledSearch >
          <h1>Neivor - Case</h1>
-         <h2>¿Quien Hizo El Pago?</h2>
+         <h2>¿Quien Hizo El Pago?</h2><br /><br />
 
          <Link to="/home">
             <button className="button-landing">GO</button>
@@ -20,10 +20,9 @@ export default function Landing() {
 }
 
 const StyledSearch = styled.div`
-
-
+/* 
 background-image: url(${URL}); 
-background-repeat: no-repeat;
+background-repeat: no-repeat; */
 
 background-color: #0a0a0a;
 width: 100%;
@@ -34,6 +33,7 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 color:  #f38181ed;
+font-size: 2rem;
    
 
    .button-landing {

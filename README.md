@@ -11,7 +11,7 @@ This api receives a legend and searches the database provided (in this case by N
 
 -----
 
-## Endpoint
+## Endpoint 1- "/match"
 #### This enpoint will return an object with the owner's data that is found in the database and has had a match with the string "Legend".
 
 POST:
@@ -42,3 +42,7 @@ The Legend must be sent by body request, and in the raw config put an object wit
 <img src ="./example-req-res.png">
 </p>
 
+--------------------
+## Endpoint 2- "/upload"
+POST:
+http://localhost:3001/upload

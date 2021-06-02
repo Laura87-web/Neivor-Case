@@ -14,9 +14,8 @@ const autenticar = async ()=>{
     await sequelize.authenticate();
     console.log('Connection DB has been established successfully.'.blue);
   } catch (error) {
-    console.error(('Unable to connect to the database:', error).red);
+    console.error(('Unable to connect to the database:').red);
   }
-
 }; autenticar()
 
 
