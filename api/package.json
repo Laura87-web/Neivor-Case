@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+    
   },
   "repository": {
     "type": "git",
@@ -35,6 +37,7 @@
     "xlsx": "^0.17.0"
   },
   "devDependencies": {
+    "nodemon": "^2.0.7",
     "sequelize-cli": "^6.2.0"
   }
 }

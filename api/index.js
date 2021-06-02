@@ -1,7 +1,10 @@
 require("colors")
 const server = require("./src/server.js")
 const {conn} = require("./src/DB.js")
-const PORT = 3001
+
+server.set("port", process.env.PORT || 3001)
+
+const PORT = server.get("port")
 const MESSAGE = `- Listen in port: ${PORT} -`.magenta.bold
 
 server.listen( PORT,()=>{
