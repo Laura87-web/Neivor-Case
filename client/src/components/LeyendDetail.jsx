@@ -2,14 +2,50 @@ import React from "react"
 import styled from "styled-components";
 
 export default function LeyendDetail({result}) {
+
+  let es = Array.isArray(result);
+
   return (
     <StyleDetail>
-      {result !== "no hubo coincidencias" ? (
-        <>
-          <span> {result.leyend} </span>
+      {es ? (
+        <>        
+        <table>
+          <thead>
+            <tr>
+              <th>Leyenda</th>
+              <th>Nombre</th>
+              <th>document</th>
+              <th>departamento</th>
+              <th>nro Cuenta</th>
+              <th>tipo de asociacion</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              result.map(elem =>{
+                return(
+                  <tr>
+              <td>{elem.leyenda}</td>
+              <td>{elem.name}</td>
+              <td>{elem.document}</td>
+              <td>{elem.reference}</td>
+              <td>{elem.bank_account}</td>
+              <td>{elem.match}</td>
+            </tr>
+                )
+              })
+              
+            }
+            
+          </tbody>
+        </table>
+      </>
+      ) : (
+        <>        
           <table>
             <thead>
               <tr>
+                <th>Leyenda</th>
                 <th>Nombre</th>
                 <th>document</th>
                 <th>departamento</th>
@@ -19,6 +55,7 @@ export default function LeyendDetail({result}) {
             </thead>
             <tbody>
               <tr>
+                <td>{result.leyenda}</td>
                 <td>{result.name}</td>
                 <td>{result.document}</td>
                 <td>{result.reference}</td>
@@ -28,8 +65,6 @@ export default function LeyendDetail({result}) {
             </tbody>
           </table>
         </>
-      ) : (
-        <p>{result}</p>
       )}
     </StyleDetail>
   );

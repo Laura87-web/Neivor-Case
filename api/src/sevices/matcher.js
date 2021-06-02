@@ -11,38 +11,56 @@
 function matcher(fragments, leyenda){
     console.log("-3- matcher".yellow)
        
-    let objResponse = "no hubo coincidencias"
+    let objResponse = {
+        match:"no hubo coincidencias",
+        leyenda,
+        name:"-",
+        document: '-',
+        reference: '-',
+        bank_account: "-",
+       
+}
+
     
     for(let elem of fragments){
         if(leyenda.includes(elem.document)){
-            return objResponse = {
+          
+             objResponse = {
                 ...elem,
                 match: "match_dni",
-                leyenda
+                
             }
+            
+            return objResponse
+
         }else if( leyenda.includes(elem.reference)){
-            return objResponse = {
+           objResponse = {
                 ...elem,
                 match: "match_reference",
-                leyenda
+                
             }
+           
+            return objResponse
+
         }else if(leyenda.includes(elem.bank_account)){
             return objResponse = {
                 ...elem,
             match: "match_bankAccount",
-            leyenda
+            
         }
     }else{
-        arrNames = elem.name.split(" ")
-        for(let name of arrNames){
-            if(leyenda.includes(name)){
-                return objResponse = {
-                    ...elem,
-                    match: "match_name",
-                    leyenda
+        if(elem.name){//en el excel algunas filas estan en indefinido
+            arrNames = elem.name.split(" ")
+            for(let name of arrNames){
+                if(leyenda.includes(name)){
+                    return objResponse = {
+                        ...elem,
+                        match: "match_name",
+                        
+                    }
                 }
             }
-        }
+        }   
     }
 
 }

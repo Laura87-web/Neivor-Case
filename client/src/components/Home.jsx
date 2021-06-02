@@ -1,45 +1,60 @@
 import React, { useEffect, useState } from 'react';
-import fs from "fs"
 import LeyendDetail from "./LeyendDetail"
 import MatcherSearch from "../components/MatcherSearch"
 import uploadExel from "../requestsAPI/uploadExcel"
 import styled from "styled-components";
+import UploadExcel from './UploadExcel';
+import { Link } from 'react-router-dom';
 
 
 export default function Home(){
     const[result, setResult] = useState()  
+    const[excel, setExcel]= useState()
   
-    function handlerUpload(e){
-       e.preventDefault()
-       console.log("esto tiene e", e)
+  //   function handlerUpload(e){
+  //      e.preventDefault()
+  //      console.log("esto tiene e", e)
        
-       uploadExel(e.name)
+  //      uploadExel(e.name)
+  //  }
+   function handleOnClick(){
+     setResult("")
+     setExcel("")
    }
-   
       useEffect(() => {
-      }, [result]) 
+      }, [result, excel]) 
     
     return (
       <StyledHome>
-        <br /><br />
-          <h1>Encuentre Los Datos</h1>
-          <h3>ingrese una Leyenda</h3>
-          
-        <MatcherSearch setResult={setResult} />
+        <br />
+        <br />
+        <h1>Encuentre Los Datos</h1>
+
         {result ? (
-          <LeyendDetail result={result} />
+          <>
+            <MatcherSearch setResult={setResult} />
+            <LeyendDetail result={result} /><br />
+            
+            <button  onClick = {handleOnClick}>volver</button>
+           
+          </>
+        ) : excel ? (
+          <>
+            <h3>- Tabla con coincidencias -</h3>
+            <UploadExcel setExcel={setExcel} />
+            <LeyendDetail result={excel} />
+            <button  onClick = {handleOnClick}>volver</button>
+          </>
         ) : (
-          <p></p>
-        )}
-        <div>
-          <br /><hr />
+          <div>
+            <h3>ingrese una Leyenda</h3>
+            <MatcherSearch setResult={setResult} />
+            <br />
+            <hr />
             <h3>o agregue archivo Excel con resumen de cuenta</h3>
-            <form onSubmit={handlerUpload} 
-            enctype="multipart/form-data">
-        <input type="file" name="excelFile" />
-        <input type='submit' value='Upload!' />
-    </form><br />  
-        </div>
+            <UploadExcel setExcel={setExcel} />
+          </div>
+        )}
       </StyledHome>
     );
 }
