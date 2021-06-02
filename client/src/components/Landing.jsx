@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from "styled-components";
-import URL from "../img/bacground.png"
+import URL from "../img/Captura.PNG"
 
 export default function Landing() {   
      return (
@@ -22,7 +22,9 @@ export default function Landing() {
 const StyledSearch = styled.div`
 
 
-/* background-image: url(${URL});  */
+background-image: url(${URL}); 
+background-repeat: no-repeat;
+
 background-color: #0a0a0a;
 width: 100%;
 height: 100%;

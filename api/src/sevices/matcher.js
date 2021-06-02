@@ -28,7 +28,7 @@ function matcher(fragments, leyenda){
              objResponse = {
                 ...elem,
                 match: "match_dni",
-                
+                leyenda
             }
             
             return objResponse
@@ -37,7 +37,7 @@ function matcher(fragments, leyenda){
            objResponse = {
                 ...elem,
                 match: "match_reference",
-                
+                leyenda
             }
            
             return objResponse
@@ -46,7 +46,7 @@ function matcher(fragments, leyenda){
             return objResponse = {
                 ...elem,
             match: "match_bankAccount",
-            
+            leyenda
         }
     }else{
         if(elem.name){//en el excel algunas filas estan en indefinido
@@ -56,7 +56,7 @@ function matcher(fragments, leyenda){
                     return objResponse = {
                         ...elem,
                         match: "match_name",
-                        
+                        leyenda
                     }
                 }
             }

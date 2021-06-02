@@ -5,10 +5,13 @@ import {Route} from "react-router-dom"
 export default function App(){
     return(
         <>
+       
         <Route exact path="/" component={Landing} />
         <Route exact path="/home" component={Home} />
 
 
-        </>
+       
+    </>
     )
 }
+

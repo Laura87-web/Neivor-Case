@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import LeyendDetail from "./LeyendDetail"
 import MatcherSearch from "../components/MatcherSearch"
-import uploadExel from "../requestsAPI/uploadExcel"
 import styled from "styled-components";
 import UploadExcel from './UploadExcel';
-import { Link } from 'react-router-dom';
 
 
 export default function Home(){
@@ -40,9 +38,9 @@ export default function Home(){
           </>
         ) : excel ? (
           <>
-            <h3>- Tabla con coincidencias -</h3>
-            <UploadExcel setExcel={setExcel} />
-            <LeyendDetail result={excel} />
+            <h2>- Tabla con coincidencias -</h2>
+           
+            <LeyendDetail result={excel} /><br /><br />
             <button  onClick = {handleOnClick}>volver</button>
           </>
         ) : (
@@ -60,6 +58,7 @@ export default function Home(){
 }
 
 const StyledHome = styled.div`
+
 
     width: 70%;
     text-align: center;

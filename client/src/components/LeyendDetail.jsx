@@ -13,11 +13,11 @@ export default function LeyendDetail({result}) {
           <thead>
             <tr>
               <th>Leyenda</th>
+              <th>tipo de asociacion</th>
               <th>Nombre</th>
               <th>document</th>
               <th>departamento</th>
               <th>nro Cuenta</th>
-              <th>tipo de asociacion</th>
             </tr>
           </thead>
           <tbody>
@@ -26,11 +26,11 @@ export default function LeyendDetail({result}) {
                 return(
                   <tr>
               <td>{elem.leyenda}</td>
+              <td>{elem.match}</td>
               <td>{elem.name}</td>
               <td>{elem.document}</td>
               <td>{elem.reference}</td>
               <td>{elem.bank_account}</td>
-              <td>{elem.match}</td>
             </tr>
                 )
               })
@@ -46,21 +46,21 @@ export default function LeyendDetail({result}) {
             <thead>
               <tr>
                 <th>Leyenda</th>
+                <th>tipo de asociacion</th>
                 <th>Nombre</th>
                 <th>document</th>
                 <th>departamento</th>
                 <th>nro Cuenta</th>
-                <th>tipo de asociacion</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>{result.leyenda}</td>
+                <td>{result.match}</td>
                 <td>{result.name}</td>
                 <td>{result.document}</td>
                 <td>{result.reference}</td>
                 <td>{result.bank_account}</td>
-                <td>{result.match}</td>
               </tr>
             </tbody>
           </table>
