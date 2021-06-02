@@ -4,13 +4,18 @@ const matchSearch = require("./matchSearch")
 const router = Router()
 
 router.post("/match", matchSearch)
+router.post("/upload", (req, res)=>{
+    console.log("excel req", req.files)
+    let data;
+    let name;
+    for(let key in req.files){
+        data = req.files[key].data.toJSON("utf-8")
+        name = req.files[key].name
+    }
+
+    console.log(data)
+    res.send(`"el archivo " ${name} "se agrego"` )
+})
+
 
 module.exports = router; 
-
-
-//------------------
-const  uploadExel = require('./uploadExcel');
-// router.post("/upload", uploadExel)
-// "/matcher"  recibe el archivo Excel
-// ejecuta la funcion matcher por cada una de las leyentas en el json
-// devuelve un json con los datos para la nueva tabla a mostrar

@@ -9,26 +9,26 @@
 // otherwise it returns a string "no hubo coincidencias"
 
 function matcher(fragments, leyenda){
-    console.log("-f- matcher".yellow)
-         
-   let objResponse = "no hubo coincidencias"
-
-   for(let elem of fragments){
-    if(leyenda.includes(elem.document)){
-       return objResponse = {
-            ...elem,
-            match: "match_dni",
-            leyenda
-        }
-    }else if( leyenda.includes(elem.reference)){
-        return objResponse = {
-            ...elem,
-            match: "match_reference",
-            leyenda
-        }
-    }else if(leyenda.includes(elem.bank_account)){
-        return objResponse = {
-            ...elem,
+    console.log("-3- matcher".yellow)
+       
+    let objResponse = "no hubo coincidencias"
+    
+    for(let elem of fragments){
+        if(leyenda.includes(elem.document)){
+            return objResponse = {
+                ...elem,
+                match: "match_dni",
+                leyenda
+            }
+        }else if( leyenda.includes(elem.reference)){
+            return objResponse = {
+                ...elem,
+                match: "match_reference",
+                leyenda
+            }
+        }else if(leyenda.includes(elem.bank_account)){
+            return objResponse = {
+                ...elem,
             match: "match_bankAccount",
             leyenda
         }
@@ -46,7 +46,6 @@ function matcher(fragments, leyenda){
     }
 
 }
-  
    return objResponse
 }
 

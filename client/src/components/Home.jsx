@@ -21,6 +21,7 @@ export default function Home(){
     
     return (
       <StyledHome>
+        <br /><br />
           <h1>Encuentre Los Datos</h1>
           <h3>ingrese una Leyenda</h3>
           
@@ -31,12 +32,13 @@ export default function Home(){
           <p></p>
         )}
         <div>
+          <br /><hr />
             <h3>o agregue archivo Excel con resumen de cuenta</h3>
             <form onSubmit={handlerUpload} 
             enctype="multipart/form-data">
-        <input type="file" name="sampleFile" />
+        <input type="file" name="excelFile" />
         <input type='submit' value='Upload!' />
-    </form>     
+    </form><br />  
         </div>
       </StyledHome>
     );
@@ -45,7 +47,7 @@ export default function Home(){
 const StyledHome = styled.div`
 
     width: 70%;
-    
+    text-align: center;
     margin:auto;
   border-radius: 5px;
   background-color: #f2f2f2;

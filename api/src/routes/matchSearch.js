@@ -1,11 +1,16 @@
+require("colors")    
 const getFragmentsOfDataBase = require("../sevices/getFragmentsOfDataBase");
 const matcher = require('../sevices/matcher.js');
 
-async function  matchSearch (req, res){        
+async function  matchSearch (req, res){    
+    console.log("-1- matcherSearch".yellow)   
+    // console.log("lo que trae el body:",req.body)    
+   
     try {
         const leyenda = req.body.params    
         const fragments = await getFragmentsOfDataBase()        
         const matching = await matcher(fragments[0], leyenda) 
+        // console.log("matching es: ", matching)
         
         res.send(matching)
         
@@ -17,7 +22,3 @@ async function  matchSearch (req, res){
 }
 
 module.exports = matchSearch; 
-
-
-// console.log("-f- matcherSearch".yellow)
-// require("colors")    
